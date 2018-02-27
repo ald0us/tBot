@@ -1,6 +1,8 @@
 {
     "1": {
         "USER" : "",
+        "POST" : "False",
+        "COMMENT" : "",
         "CONSUMER_KEY": "",
         "CONSUMER_SECRET": "",
         "ACCESS_TOKEN": "",
@@ -8,6 +10,8 @@
     },
     "2": {
         "USER" : "",
+        "POST" : "True",
+        "COMMENT" : "",
         "CONSUMER_KEY": "",
         "CONSUMER_SECRET": "",
         "ACCESS_TOKEN": "",
