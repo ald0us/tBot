@@ -18,18 +18,27 @@ with open('sdfsdf.json') as json_data:
         auth.set_access_token(ACCESS_TOKEN, ACCESS_SECRET)
         api = tweepy.API(auth)
 
-        status_id = 'insert status id to deploy on'
+        status_id = '926013842332647424'
 
-        if j[i]['POST'] == "True":
-            api.update_status("@UserName " + j[i]['COMMENT'], in_reply_to_status_id = status_id)
-            print(j[i]['USER'], "Replied to status")
+        try:
+            if j[i]['POST'] == "True":
+                api.update_status("@testacc31159842 " + j[i]['COMMENT'], in_reply_to_status_id = status_id)
+                print(j[i]['USER'], "Replied to status")
 
-        api.create_favorite(status_id)
-        print(j[i]['USER'], "Favorited Tweet")
+            api.create_favorite(status_id)
+            print(j[i]['USER'], "Favorited Tweet")
 
-        api.retweet(status_id)
-        print(j[i]['USER'], "Retweeted")
+            api.retweet(status_id)
+            print(j[i]['USER'], "Retweeted")
 
-        print("Pause for 2 seconds")
-        time.sleep(2) 
+            api.create_friendship("@testacc31159842")
+            print(j[i]['USER'], "Followed")
 
+            print("\nPause for 2 seconds\n")
+            time.sleep(2)
+
+        except tweepy.TweepError as e:
+            print(e.reason)
+
+        except StopIteration:
+            break
