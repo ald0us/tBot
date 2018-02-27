@@ -18,11 +18,12 @@ with open('sdfsdf.json') as json_data:
         auth.set_access_token(ACCESS_TOKEN, ACCESS_SECRET)
         api = tweepy.API(auth)
 
-        status_id = '926013842332647424'
-
+        status_id = '412525863465680896' # target status_id
+        
+        respondTo = "@userName " # be sure to leave a space at the end or else comments wont post        
         try:
             if j[i]['POST'] == "True":
-                api.update_status("@testacc31159842 " + j[i]['COMMENT'], in_reply_to_status_id = status_id)
+                api.update_status(respondTo + j[i]['COMMENT'], in_reply_to_status_id = status_id)
                 print(j[i]['USER'], "Replied to status")
 
             api.create_favorite(status_id)
@@ -31,7 +32,7 @@ with open('sdfsdf.json') as json_data:
             api.retweet(status_id)
             print(j[i]['USER'], "Retweeted")
 
-            api.create_friendship("@testacc31159842")
+            api.create_friendship(respondTo)
             print(j[i]['USER'], "Followed")
 
             print("\nPause for 2 seconds\n")
