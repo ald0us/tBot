@@ -31,5 +31,5 @@ with open('sdfsdf.json') as json_data:
         print(j[i]['USER'], "Retweeted")
 
         print("Pause for 2 seconds")
-        time.sleep(2)
+        time.sleep(2) 
 
